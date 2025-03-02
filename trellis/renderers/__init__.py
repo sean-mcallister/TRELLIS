@@ -1,14 +1,16 @@
 import importlib
 
 __attributes = {
-    'OctreeRenderer': 'octree_renderer',
-    'GaussianRenderer': 'gaussian_render',
-    'MeshRenderer': 'mesh_renderer',
+    "OctreeRenderer": "octree_renderer",
+    "GaussianRenderer": "gaussian_render",
+    "GSplatRenderer": "gsplat_renderer",
+    "MeshRenderer": "mesh_renderer",
 }
 
 __submodules = []
 
 __all__ = list(__attributes.keys()) + __submodules
+
 
 def __getattr__(name):
     if name not in globals():
@@ -25,7 +27,8 @@ def __getattr__(name):
 
 
 # For Pylance
-if __name__ == '__main__':
-    from .octree_renderer import OctreeRenderer
+if __name__ == "__main__":
     from .gaussian_render import GaussianRenderer
+    from .gsplat_renderer import GSplatRenderer
     from .mesh_renderer import MeshRenderer
+    from .octree_renderer import OctreeRenderer
